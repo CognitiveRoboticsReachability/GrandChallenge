@@ -20,4 +20,5 @@ def get_reachable(mdp):
             return new_rs
         else:
             reachable_states = new_rs
-    return terminal in reachable_states ## this probably doesn't work yet
+    return True # Let's make sure the whole loop works first
+    #return terminal in reachable_states ## this probably doesn't work yet
