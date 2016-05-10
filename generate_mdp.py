@@ -9,12 +9,10 @@ def generate_mdp_files(map, T, filename, actions = [(0,1),(1,0),(0,-1),(-1,0)]):
     f.write("grid " + str(len(map[0])) + " " + str(len(map)) + "\n")
 
     # Obstacles
-    f.write("obstacle ")
     for x in range(len(map[0])):
         for y in range(len(map)):
             if (map[x][y] == "1"):
-                f.write("(" + str(x) + "," + str(y) + ") ")
-    f.write("\n")
+                f.write("obstacle (" + str(x) + "," + str(y) + ")\n")
 
     # States and rewards
     for x in range(len(map[0])):
@@ -63,7 +61,7 @@ def sample_transition(map, wind_strength): #gridX, gridY, windX, windY):
                 states.append(z)
 
         states = list(set(states))
-
+        
         prob = {}
 
         for z in states:
@@ -85,6 +83,6 @@ w = [['S', '0', '0', '0'],
 
 T = lambda x, a: {x:0.2, (x[0]+a[0],x[1]+a[1]):0.8}
 
-filename = "test.mdp"
+filename = "C:/Users/gcruz/Documents/test2.mdp"
 
 generate_mdp_files(w, T, filename)
