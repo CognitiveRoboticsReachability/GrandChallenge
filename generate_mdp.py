@@ -8,6 +8,12 @@ def generate_mdp_files(map, T, filename, actions = [(0,1),(1,0),(0,-1),(-1,0)]):
     # Grid size
     f.write("grid " + str(len(map[0])) + " " + str(len(map)) + "\n")
 
+    # Init
+    for x in range(len(map[0])):
+        for y in range(len(map)):
+            if (map[x][y] == "S"):
+                f.write("(" + str(x) + "," + str(y) + ")\n")
+                
     # Obstacles
     for x in range(len(map[0])):
         for y in range(len(map)):
@@ -83,6 +89,6 @@ w = [['S', '0', '0', '0'],
 
 T = lambda x, a: {x:0.2, (x[0]+a[0],x[1]+a[1]):0.8}
 
-filename = "C:/Users/gcruz/Documents/test2.mdp"
+filename = "C:/Users/gcruz/Documents/test.mdp"
 
 generate_mdp_files(w, T, filename)
