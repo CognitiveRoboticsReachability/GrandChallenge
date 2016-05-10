@@ -63,7 +63,7 @@ def sample_transition(map, wind_strength): #gridX, gridY, windX, windY):
                 states.append(z)
 
         states = list(set(states))
-        
+
         prob = {}
 
         for z in states:
@@ -85,6 +85,6 @@ w = [['S', '0', '0', '0'],
 
 T = lambda x, a: {x:0.2, (x[0]+a[0],x[1]+a[1]):0.8}
 
-filename = "C:/Users/gcruz/Documents/test2.mdp"
+filename = "test.mdp"
 
 generate_mdp_files(w, T, filename)
